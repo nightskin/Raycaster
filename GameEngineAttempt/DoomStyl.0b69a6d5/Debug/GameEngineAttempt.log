@@ -1,0 +1,27 @@
+﻿  GameObject.cpp
+  GameScene.cpp
+  Input.cpp
+  Level.cpp
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Level.cpp(20,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Level.cpp(72,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Level.cpp(72,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Level.cpp(145,20): warning C4018: '<': signed/unsigned mismatch
+  MenuScene.cpp
+  Player.cpp
+  Program.cpp
+  Game.cpp
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Game.cpp(56,24): warning C4018: '<': signed/unsigned mismatch
+  Graphics.cpp
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Graphics.cpp(77,38): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Graphics.cpp(77,26): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Graphics.cpp(82,27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Graphics.cpp(82,20): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Scene.cpp
+  SceneManager.cpp
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\SceneManager.cpp(17,23): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\SceneManager.cpp(38,23): warning C4018: '<': signed/unsigned mismatch
+  Time.cpp
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Time.cpp(43,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\SceneManager.cpp(45): warning C4715: 'SceneManager::GetScene': not all control paths return a value
+  GameEngineAttempt.vcxproj -> C:\Users\Shimron\Desktop\Projects\Games\Doom-Style-Engine\GameEngineAttempt\Debug\DoomStyleRenderer.exe
