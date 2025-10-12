@@ -148,15 +148,9 @@ void Level::DrawTopDown()
 	}
 }
 
-void Level::DrawPerspective(Vector3 pos, Vector3 rot)
+Vector2 Level::GetPositionInMap()
 {
-	Vector3 wallPoints[4];
-
-}
-
-Vector3 Level::GetPositionInMap()
-{
-	return Vector3(25, 0, 25) * stepSize;
+	return Vector2(25, 25) * stepSize;
 }
 
 int Level::GetState(bool a, bool b, bool c, bool d)

@@ -68,8 +68,7 @@ void Graphics::DrawRect(Vector2 pos, Vector2 size, Color color, bool centered)
         rect.y = pos.y;
     }
 
-
-    SDL_RenderRect(renderer, &rect);
+    SDL_RenderFillRect(renderer, &rect);
 }
 
 Vector2 Graphics::WindowCenter()

@@ -1,19 +1,6 @@
 #pragma once
 #include <math.h>
 
-
-
-//float RadToDeg(float rad)
-//{
-//	return rad * (180.0f / 3.14159f);
-//}
-//
-//float DegToRad(float deg)
-//{
-//	return deg * (3.14159f / 180.0f);
-//}
-
-
 struct Vector2
 {
 	Vector2()
@@ -31,6 +18,10 @@ struct Vector2
 		x = xp;
 		y = yp;
 	}
+	float Distance(Vector2 other)
+	{
+		return sqrtf(powf(other.x - x, 2) + powf(other.y - y, 2));
+	}
 	float GetLength()
 	{
 		return sqrtf((x * x) + (y * y));
@@ -39,12 +30,13 @@ struct Vector2
 	{
 		return Vector2(x, y) / GetLength();
 	}
-	void Normalize()
+	Vector2 Rotated(float rad)
 	{
-		float length = GetLength();
-		x /= length;
-		y /= length;
+		float xp = x * cosf(rad) - y * sinf(rad);
+		float yp = x * sinf(rad) + y * cosf(rad);
+		return Vector2(xp, yp);
 	}
+
 	Vector2 operator + (Vector2 o)
 	{
 		return Vector2(x + o.x, y + o.y);
@@ -177,6 +169,8 @@ struct Vector3
 		z /= o;
 	}
 
+	
+
 	float x = 0;
 	float y = 0;
 	float z = 0;
@@ -187,6 +181,11 @@ struct Color
 	Color()
 	{
 
+	}
+	Color(float s)
+	{
+		r = g = b = s;
+		a = 1;
 	}
 	Color(float red, float green, float blue)
 	{
@@ -220,12 +219,18 @@ struct Hit2D
 		exists = true;
 		hitPoint = p;
 	}
+
 	bool exists;
 	Vector2 hitPoint;
 };
 
 struct Line
 {
+	Line()
+	{
+		start = Vector2();
+		end = Vector2();
+	}
 	Line(float sx, float sy, float ex, float ey)
 	{
 		start = Vector2(sx, sy);
@@ -265,3 +270,16 @@ struct Line
 	Vector2 end;
 };
 
+class MathHelper
+{
+public:
+	static float Deg2Rad(float d)
+	{
+		return (3.14159f / 180.0f) * d;
+	}
+
+	static float Rad2Deg(float r)
+	{
+		return (180.0f / 3.14159f) * r;
+	}
+};

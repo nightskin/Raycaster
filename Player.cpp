@@ -15,7 +15,7 @@ Player::~Player()
 
 void Player::Load()
 {
-
+	rotation = 0;
 }
 
 void Player::Update()
@@ -23,47 +23,42 @@ void Player::Update()
 	//Moving
 	if (Input::Get().keyboard[SDL_SCANCODE_W])
 	{
-		position.z -= moveSpd * Time::Get().DeltaTime();
+		position += GetForward() * moveSpd * Time::Get().DeltaTime();
 	}
 	else if (Input::Get().keyboard[SDL_SCANCODE_S])
 	{
-		position.z += moveSpd * Time::Get().DeltaTime();
+		position -= GetForward() * moveSpd * Time::Get().DeltaTime();
 	}
 
+	//Looking
 	if (Input::Get().keyboard[SDL_SCANCODE_A])
 	{
-		position.x -= moveSpd * Time::Get().DeltaTime();
+		rotation += rotSpd * Time::Get().DeltaTime();
+		if (rotation > 360) rotation -= 360;
 	}
 	else if (Input::Get().keyboard[SDL_SCANCODE_D])
 	{
-		position.x += moveSpd * Time::Get().DeltaTime();
+		rotation -= rotSpd * Time::Get().DeltaTime();
+		if (rotation < 0) rotation += 360;
 	}
 
-	//looking
-	if (Input::Get().keyboard[SDL_SCANCODE_UP])
-	{
-		rotation.x -= rotSpd * Time::Get().DeltaTime();
-	}
-	else if (Input::Get().keyboard[SDL_SCANCODE_DOWN])
-	{
-		rotation.x += rotSpd * Time::Get().DeltaTime();
-	}
-
-	if (Input::Get().keyboard[SDL_SCANCODE_LEFT])
-	{
-		rotation.y -= rotSpd * Time::Get().DeltaTime();
-	}
-	else if (Input::Get().keyboard[SDL_SCANCODE_RIGHT])
-	{
-		rotation.y += rotSpd * Time::Get().DeltaTime();
-	}
 }
 
 void Player::Draw()
 {
 	//Top down view
-	Vector2 p2d = Vector2(position.x, position.z);
-	Vector2 forward = Vector2(rotation.y);
-
-	Graphics::Get().DrawLine(p2d, p2d + (forward * 15), Color(1, 0, 0));
+	Vector2 p2d = Vector2(position.x, position.y);
+	Graphics::Get().DrawRect(p2d, Vector2(10, 10), Color(1, 0, 0));
+	Graphics::Get().DrawLine(p2d, p2d + (GetForward() * 10));
 }
+
+Vector2 Player::GetForward()
+{
+	return Vector2(MathHelper::Deg2Rad(rotation));
+}
+
+Vector2 Player::GetRight()
+{
+	return Vector2(MathHelper::Deg2Rad(rotation + 90));
+}
+
