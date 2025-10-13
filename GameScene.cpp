@@ -2,7 +2,6 @@
 #include "Input.hpp"
 #include "Graphics.hpp"
 
-
 GameScene::GameScene()
 {
 	name = "Game";
@@ -27,7 +26,11 @@ void GameScene::Update()
 {
 	if (Input::Get().keyboard[SDL_SCANCODE_P])
 	{
-		paused = !paused;
+		paused = true;
+	}
+	else
+	{
+		paused = false;
 	}
 
 	player.Update();

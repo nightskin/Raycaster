@@ -24,7 +24,7 @@
     <ProjectGuid>{0b69a6d5-5e53-4aab-b6f4-1673f4faf9a8}</ProjectGuid>
     <RootNamespace>GameEngineAttempt</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>DoomStyleRenderer</ProjectName>
+    <ProjectName>Raycaster</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
