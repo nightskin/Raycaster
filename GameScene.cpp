@@ -45,7 +45,7 @@ void GameScene::Draw()
 	}
 	else
 	{
-		for (int i = -Graphics::Get().WindowSize().x/2; i < Graphics::Get().WindowSize().x/2; i++)
+		for (int i = -Graphics::Get().WindowCenter().x; i < Graphics::Get().WindowCenter().x; i++)
 		{
 			Vector2 dir = player.GetForward().Rotated(MathHelper::Deg2Rad(-i * 0.1f));
 			Line ray = Line(player.position, player.position + dir.Normalized() * 500);
@@ -61,6 +61,7 @@ void GameScene::Draw()
 				}
 			}
 
+			//Draw Line
 			if (hits.size() > 0)
 			{
 				Hit2D closest = hits[0];
@@ -88,7 +89,7 @@ void GameScene::Draw()
 				float shading = 1.0f / dist + 0.25f;
 				if (shading > 1) shading = 1;
 
-				Graphics::Get().DrawRect(Vector2((i + Graphics::Get().WindowSize().x / 2), 300 - height / 2), Vector2(width, height * 8), Color(shading));
+				Graphics::Get().DrawRect(Vector2((i + Graphics::Get().WindowCenter().x), Graphics::Get().WindowCenter().y - height / 2), Vector2(width, height * 8), Color(shading));
 			}
 			else
 			{
