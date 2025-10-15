@@ -45,9 +45,9 @@ void GameScene::Draw()
 	}
 	else
 	{
-		for (int i = -30; i <= 30; i++)
+		for (int i = -Graphics::Get().WindowSize().x/2; i < Graphics::Get().WindowSize().x/2; i++)
 		{
-			Vector2 dir = player.GetForward().Rotated(MathHelper::Deg2Rad(-i));
+			Vector2 dir = player.GetForward().Rotated(MathHelper::Deg2Rad(-i * 0.1f));
 			Line ray = Line(player.position, player.position + dir.Normalized() * 500);
 
 			//Get All hits
@@ -82,13 +82,13 @@ void GameScene::Draw()
 
 				dist = dist * cosf(MathHelper::Deg2Rad(ca));
 
-				float height = (600 / dist);
-				float width = 800 / 60;
+				float height = (Graphics::Get().WindowSize().y / dist);
+				float width = 1;
 
 				float shading = 1.0f / dist + 0.25f;
 				if (shading > 1) shading = 1;
 
-				Graphics::Get().DrawRect(Vector2((i + 30) * width, 300 - height / 2), Vector2(width, height * 8), Color(shading));
+				Graphics::Get().DrawRect(Vector2((i + Graphics::Get().WindowSize().x / 2), 300 - height / 2), Vector2(width, height * 8), Color(shading));
 			}
 			else
 			{
